@@ -85,6 +85,13 @@ public class ClientMorale extends Client implements Serializable {
         this.listedesGerants = listedesGerants;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNmrTva() {
 

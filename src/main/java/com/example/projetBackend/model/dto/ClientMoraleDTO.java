@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class ClientMoraleDTO {
-
+    private int id;
     private String nmrTva;
     private String nomSiege;
     private String typeEntreprise;
@@ -24,6 +24,7 @@ public class ClientMoraleDTO {
     }
 
     public  static class ClientPhysiqueDTO{
+
     private int id;
 
     private String nmrRegistreNationale;
@@ -121,6 +122,13 @@ public class ClientMoraleDTO {
     }
 
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNmrTva() {
         return nmrTva;

@@ -9,5 +9,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface ClientPhysiqueRepository  extends JpaRepository<ClientPhysique, Integer> {
+
     ClientPhysique findByNmrRegistreNationale(String nmrRegistreNationale);
 }

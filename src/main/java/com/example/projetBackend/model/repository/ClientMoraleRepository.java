@@ -16,4 +16,13 @@ public interface ClientMoraleRepository extends JpaRepository<ClientMorale, Inte
             "AND cm.nmr_Tva = ?1",
             nativeQuery = true)
     List<ClientMorale> findByGerant(String nmrRegistreNationale);
+    @Query(value = "SELECT * FROM  client_morale cm ,client_physique cp " +
+            "WHERE cp.nmr_registre_nationale = cm.nmr_Tva " +
+            "AND cp.id_client = ?1",
+            nativeQuery = true)
+    List<ClientMorale> findByIDgerant(int id);
+    @Query(value = "SELECT * FROM  client_morale cm  cp WHERE   " +
+            "cm.nmr_Tva = ?1",
+            nativeQuery = true)
+    List<ClientMorale> findByNmrTVA(String nmrTva);
 }
