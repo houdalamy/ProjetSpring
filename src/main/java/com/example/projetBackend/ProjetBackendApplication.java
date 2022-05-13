@@ -92,7 +92,7 @@ public ClientPhysiqueMapper clientPhysiqueMapper;
 		clientMoraleRepository.save(clientMorale);
 
 
-		ClientMorale postFoundByGerant = clientMoraleRepository.findByGerant("80050688088").get(0);
+		ClientMorale postFoundByGerant = clientMoraleRepository.findByIDgerant(1).get(0);
 
 		System.out.println(postFoundByGerant.getNomSiege());
 

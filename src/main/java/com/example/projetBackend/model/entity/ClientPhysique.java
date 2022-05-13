@@ -42,8 +42,8 @@ public class ClientPhysique extends Client implements Serializable {
   @ManyToMany
     @JoinTable(
             name = "Table_Entreprise_Gerants_Associations",
-            joinColumns = @JoinColumn( name = "nmr_registre_nationale" ),
-            inverseJoinColumns = @JoinColumn( name = "nmr_Tva" ))
+            joinColumns = @JoinColumn( name = "id_client" ),
+            inverseJoinColumns = @JoinColumn( name = "id_entreprise" ))
     List<ClientMorale> listeDesEntreprises = new ArrayList<>();
 
 
@@ -52,7 +52,7 @@ public class ClientPhysique extends Client implements Serializable {
   @ManyToMany
   @JoinTable(
           name = "Table_Client_comptesBancaire_Associations",
-          joinColumns = @JoinColumn( name = "nmr_registre_nationale" ),
+          joinColumns = @JoinColumn( name = "id_client" ),
           inverseJoinColumns = @JoinColumn( name = "compte_bancaire_id" ))
   List<CompteBancaire> listeComptes = new ArrayList<>();
 

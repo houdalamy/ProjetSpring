@@ -27,7 +27,11 @@ public class CompteBancaireDTO {
 
     }
 
-    public CompteBancaireDTO(int compteBancaireId, String iban, double solde, LocalDate dateCreationCompteBancaire, LocalDate dateFermetureCompteBancaire, TypeCompteBancaire typeCompteBancaire, List<ClientPhysiqueDTO> listeClients) {
+    public CompteBancaireDTO(int compteBancaireId, String iban, double solde,
+                             LocalDate dateCreationCompteBancaire,
+                             LocalDate dateFermetureCompteBancaire,
+                             TypeCompteBancaire typeCompteBancaire,
+                             List<ClientPhysiqueDTO> listeClients) {
         this.compteBancaireId = compteBancaireId;
         this.iban = iban;
         this.solde = solde;

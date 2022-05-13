@@ -39,7 +39,7 @@ public class ClientMoraleService {
     }
     //methode update()
 
-    public ClientMoraleDTO update(ClientMoraleDTO clientMoraleDTO){
+    public ClientMoraleDTO updateEntreprise(ClientMoraleDTO clientMoraleDTO){
         if (clientMoraleDTO.getId() > 0){
             ClientMorale clientAmodifier =
                 clientMoraleRepository.findById(clientMoraleDTO.getId())

@@ -1,9 +1,11 @@
 package com.example.projetBackend.model.dto;
 
+import com.example.projetBackend.model.entity.TypeCompteBancaire;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ClientMoraleDTO {
@@ -18,6 +20,12 @@ public class ClientMoraleDTO {
 
     @JsonIgnore
     private List<ClientMoraleDTO.ClientPhysiqueDTO> clientPhysique;
+    private List<String> gerantNumeroRegistre;
+
+    @JsonIgnore
+    private List<ClientMoraleDTO.CompteBancaireDTO> compteBancairesList = new ArrayList<>();
+    private List<Integer> compteBancaireId ;
+
 
     public ClientMoraleDTO() {
 
@@ -98,7 +106,29 @@ public class ClientMoraleDTO {
 
 
 
+    public static class CompteBancaireDTO{
+        private int compteBancaireId;
+        private String iban;
+        private double solde;
+        private LocalDate dateCreationCompteBancaire;
+        private LocalDate dateFermetureCompteBancaire;
+        private TypeCompteBancaire typeCompteBancaire;
 
+
+        public CompteBancaireDTO(int compteBancaireId, String iban, double solde,
+                                 LocalDate dateCreationCompteBancaire,
+                                 LocalDate dateFermetureCompteBancaire,
+                                 TypeCompteBancaire typeCompteBancaire) {
+            this.compteBancaireId = compteBancaireId;
+            this.iban = iban;
+            this.solde = solde;
+            this.dateCreationCompteBancaire = dateCreationCompteBancaire;
+            this.dateFermetureCompteBancaire = dateFermetureCompteBancaire;
+            this.typeCompteBancaire = typeCompteBancaire;
+        }
+
+
+    }
 
 
     public ClientMoraleDTO(String nmrTva, String nomSiege, String typeEntreprise,
@@ -194,7 +224,30 @@ public class ClientMoraleDTO {
         this.clientPhysique = clientPhysique;
     }
 
-   /* public String getClientPhysiqueNom_NumeroRegistre() {
+    public List<String> getGerantNumeroRegistre() {
+        return gerantNumeroRegistre;
+    }
+
+    public void setGerantNumeroRegistre(List<String> gerantNumeroRegistre) {
+        this.gerantNumeroRegistre = gerantNumeroRegistre;
+    }
+
+    public List<CompteBancaireDTO> getCompteBancairesList() {
+        return compteBancairesList;
+    }
+
+    public void setCompteBancairesList(List<CompteBancaireDTO> compteBancairesList) {
+        this.compteBancairesList = compteBancairesList;
+    }
+
+    public List<Integer> getCompteBancaireId() {
+        return compteBancaireId;
+    }
+
+    public void setCompteBancaireId(List<Integer> compteBancaireId) {
+        this.compteBancaireId = compteBancaireId;
+    }
+    /* public String getClientPhysiqueNom_NumeroRegistre() {
         return clientPhysique.getPrenom() + " " + clientPhysique.getNmrRegistreNationale();
     }*/
 }

@@ -27,9 +27,19 @@ public class ControllerClientMorale {
     }
 
     @DeleteMapping
-    public void deleteClientMoralById(@PathVariable int id){
+    public void deleteClientMoralById(@RequestParam int id){
          entrepriseService.deleteClientMoralById(id);
 
+    }
+
+    @PostMapping
+    public ClientMoraleDTO save(@RequestBody ClientMoraleDTO clientMoraleDTO){
+        return entrepriseService.save(clientMoraleDTO);
+    }
+
+    @PutMapping
+    public ClientMoraleDTO updateEntreprise(@RequestBody ClientMoraleDTO clientMoraleDTO){
+        return entrepriseService.updateEntreprise(clientMoraleDTO);
     }
 
 

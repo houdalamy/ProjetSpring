@@ -12,8 +12,9 @@ public interface ClientMoraleRepository extends JpaRepository<ClientMorale, Inte
 
     //List<ClientMorale> findByGerant(ClientPhysique gerantID);
 
-    @Query(value = "SELECT * FROM  client_morale cm ,client_physique cp WHERE cp.nmr_registre_nationale = cm.nmr_Tva " +
-            "AND cm.nmr_Tva = ?1",
+    @Query(value = "SELECT * FROM  client_morale cm ,client_physique cp " +
+            "WHERE cp.id_client = cm.id_entreprise " +
+            "AND cm.nmrRegistreNationale = ?1",
             nativeQuery = true)
     List<ClientMorale> findByGerant(String nmrRegistreNationale);
     @Query(value = "SELECT * FROM  client_morale cm ,client_physique cp " +

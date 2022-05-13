@@ -17,6 +17,7 @@ public class ClientMorale extends Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_entreprise")
     private int id;
 
     @Column(name = "nmr_Tva"  , unique = true)
@@ -50,6 +51,14 @@ public class ClientMorale extends Client implements Serializable {
                 joinColumns = @JoinColumn( name = "nmr_Tva" ),
                 inverseJoinColumns = @JoinColumn( name = "nmr_registre_nationale" ))
     private List<ClientPhysique> listedesGerants = new ArrayList<>();
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "Table_Entreprises_comptesBancaire_Associations",
+            joinColumns = @JoinColumn( name = "id_entreprise" ),
+            inverseJoinColumns = @JoinColumn( name = "compte_bancaire_id" ))
+    List<CompteBancaire> listeComptesEntreprises = new ArrayList<>();
 
     public ClientMorale(String nmrTva, String nomSiege, String typeEntreprise, String lieu_siege, double capital) {
         this.nmrTva = nmrTva;
@@ -170,5 +179,13 @@ public class ClientMorale extends Client implements Serializable {
     public void setListedesGerants(List<ClientPhysique> listedesGerants) {
 
         this.listedesGerants = listedesGerants;
+    }
+
+    public List<CompteBancaire> getListeComptesEntreprises() {
+        return listeComptesEntreprises;
+    }
+
+    public void setListeComptesEntreprises(List<CompteBancaire> listeComptesEntreprises) {
+        this.listeComptesEntreprises = listeComptesEntreprises;
     }
 }
